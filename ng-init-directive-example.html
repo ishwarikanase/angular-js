@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body>
+    <div ng-app="" ng-init="quantity=0;cost=0">
+        <input type="text" ng-model="quantity" placeholder="Enter a quantity here">
+        <input type="text" ng-model="cost" placeholder="Enter a cost here">
+        <p>Total in dollar: {{ quantity * cost }}</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.0/angular.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="MyController">
+        <button type="submit" ng-click="show()">Show</button>
+        <button type="submit" ng-click="hide()">Hide</button>
+        <h1 ng-show="success">hiiiii</h1>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('MyController', ['$scope', function ($scope) {
+            $scope.success = false;
+            $scope.name = "hello";
+
+            $scope.hide = function () {
+                $scope.success = false;
+            }
+            $scope.show = function () {
+                $scope.success = true;
+            }
+        }])
+    </script>
+
+</body>
+
+</html>

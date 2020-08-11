@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.0/angular.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="MyController">
+        <span ng-mouseover="mouseOver()">mouseover event</span> ->{{mouseOverEvent}}<hr>
+        <span ng-mouseenter="mouseEnter()">mouseenter event</span> ->{{mouseEnterEvent}}<hr>
+        <span ng-mousemove="mouseMove()">mousemove event</span> ->{{mouseMoveEvent}}<hr>
+        <span ng-mouseleave="mouseLeave()">mouseleave event</span> ->{{mouseLeaveEvent}}<hr>
+        <span ng-mouseup="mouseUp()">mouseup event</span> ->{{mouseUpEvent}}<hr>
+        <input type="text" ng-keypress="keyPress()"> keypress event</span> ->{{keyPressEvent}}<hr>
+
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('MyController', ['$scope', function ($scope) {
+            $scope.mouseOverEvent=false;
+            $scope.mouseEnterEvent=false;
+            $scope.mouseMoveEvent=false;
+            $scope.mouseLeaveEvent=false;
+            $scope.mouseUpEvent=false;
+            $scope.keyPressEvent=false;
+
+            $scope.mouseOver=function(){
+                $scope.mouseOverEvent=true;
+            }
+            $scope.mouseEnter=function(){
+                $scope.mouseEnterEvent=true;
+            }
+            $scope.mouseMove=function(){
+                $scope.mouseMoveEvent=true;
+            }
+            $scope.mouseLeave=function(){
+                $scope.mouseLeaveEvent=true;
+            }
+            $scope.mouseUp=function(){
+                $scope.mouseUpEvent=true;
+            }
+            $scope.keyPress=function(){
+                $scope.keyPressEvent=true;
+            }
+        }]);
+    </script>
+
+</body>
+
+</html>
