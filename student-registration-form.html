@@ -1,40 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.0/angular.min.js"></script>
-    <title>Document</title>
-</head>
-
+<html>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.0/angular.min.js"></script>
 <body ng-app="">
-    <form>
-        First name : <input type="text" ng-model="first_name"><br>
-        Last name : <input type="text" ng-model="last_name"><br>
-        E-mail Id : <input type="text" ng-model="email"><br>
-        Date of birth : <input type="text" ng-model="dob"><br>
-        Mobile number : <input type="text" ng-init="mobile=0" ng-model="mobile"><br>
-        Gender : <select name="gender" id="gender" ng-model="gender">
+    <form name="student_registration">
+        First name : <input type="text" name="first_name" ng-model="first_name" required><p ng-show="student_registration.first_name.$invalid">first name is mandetory</p><br>
+        Last name : <input type="text" ng-model="last_name" name="last_name" required><p ng-show="student_registration.last_name.$invalid">last name is mandetory</p><br>
+        E-mail Id : <input type="email" ng-model="email" name="email" required><p ng-show="student_registration.email.$invalid">please enter correct email</p><br>
+        Date of birth : <input type="text" ng-model="dob" name="dob" required><p ng-show="student_registration.dob.$invalid">dob is mandetory</p><br>
+        Mobile number : <input type="text" ng-model="mobile" name="mobile" required><p ng-show="student_registration.mobile.$invalid">mobile is mandetory</p><br>
+        Gender : <select name="gender" id="gender" ng-model="gender" required>
             <option value="male">Male</option>
             <option value="female">Female</option>
-        </select><br>
+        </select><p ng-show="student_registration.gender.$invalid">gender is mandetory</p><br>
         Course : <br>
-        <input type="radio" name="course" value="C" ng-model="course">C <br>
-        <input type="radio" name="course" value="C++" ng-model="course">C++<br>
-        <input type="radio" name="course" value="Java" ng-model="course">Java<br>
+        <input type="radio" name="course" value="C" ng-model="course" required>C <br>
+        <input type="radio" name="course" value="C++" ng-model="course" required>C++<br>
+        <input type="radio" name="course" value="Java" ng-model="course" required>Java<p ng-show="student_registration.course.$invalid">course is mandetory</p><br>
         <button type="submit">Save</button>
         <button type="reset">Reset</button>
     </form>
-    <h1>{{first_name}}</h1>
-    <h1>{{last_name}}</h1>
-    <h1>{{email}}</h1>
-    <h1>{{dob}}</h1>
-    <h1>{{mobile}}</h1>
-    <h1>{{gender}}</h1>
-    <h1>{{course}}</h1>
-</body>
+    <h2>valid or not</h2>
 
+    <p>The first-name input field's valid state is:{{student_registration.first_name.$valid}}</p>
+    <p>The last-name input field's valid state is:{{student_registration.last_name.$valid}}</p>
+    <p>The email input field's valid state is:{{student_registration.email.$valid}}</p>
+    <p>The dob input field's valid state is:{{student_registration.dob.$valid}}</p>
+    <p>The mobile-number input field's valid state is:{{student_registration.mobile.$valid}}</p>
+    <p>The  gender input field's valid state is:{{student_registration.gender.$valid}}</p>
+    <p>The course input field's valid state is:{{student_registration.course.$valid}}</p>
+
+    <h2>touched or not</h2>
+
+    <p>The first-name input field's touched state is:{{student_registration.first_name.$touched}}</p>
+    <p>The last-name input field's touched state is:{{student_registration.last_name.$touched}}</p>
+    <p>The email input field's touched state is:{{student_registration.email.$touched}}</p>
+    <p>The dob input field's touched state is:{{student_registration.dob.$touched}}</p>
+    <p>The mobile-number input field's touched state is:{{student_registration.mobile.$touched}}</p>
+    <p>The  gender input field's touched state is:{{student_registration.gender.$touched}}</p>
+    <p>The course input field's touched state is:{{student_registration.course.$touched}}</p>
+</body>
 </html>
