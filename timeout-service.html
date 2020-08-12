@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.0/angular.min.js"></script>
+
 <body>
 
-<div ng-app="myApp" ng-controller="myCtrl"> 
+    <div ng-app="myApp" ng-controller="myCtrl">
 
-<p>This header will change after 2000ms means 2 seconds:</p>
+        <p>This header will change after 2000ms means 2 seconds:</p>
 
-<h1>{{myHeader}}</h1>
+        <h1>{{myHeader}}</h1>
 
-</div>
+    </div>
 
-<p>The timeout service runs a function after a 2000 ms.</p>
+    <p>The timeout service runs a function after a 2000 ms.</p>
 
-<script>
-var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope, $timeout) {
-  $scope.myHeader = "Hello World!";
-  $timeout(function () {
-      $scope.myHeader = "Welcome to angular js";
-  }, 2000);
-});
-</script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope, $timeout) {
+            $scope.myHeader = "Hello World!";
+            $timeout(function () {
+                $scope.myHeader = "Welcome to angular js";
+            }, 2000);
+        });
+    </script>
 
 </body>
+
 </html>
